@@ -1,2 +1,3 @@
-package org.example;public class IDataStore {
-}
+package org.example;
+
+interface IDataStore{    public Basket getItemsInDB();}

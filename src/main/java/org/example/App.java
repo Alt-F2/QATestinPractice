@@ -1,10 +1,13 @@
 package org.example;
 
-/**
- * Hello world!
- */
 public class App {
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        BankAccount ba = new BankAccount(33.33);
+        System.out.println(ba.getBalance());
+
+        ba.credit(10);
+        System.out.println(ba.getBalance());
+
+
     }
 }
