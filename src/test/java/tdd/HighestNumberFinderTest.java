@@ -2,7 +2,10 @@ package tdd;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.NoSuchElementException;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class HighestNumberFinderTest {
     @Test
@@ -53,6 +56,32 @@ public class HighestNumberFinderTest {
         int[] input = {4, 5, -8, 3, 11, -21, 6};
         HighestNumberFinder cut = new HighestNumberFinder();
         int expectedResult = 11;
+
+        // act
+        int actualResult = cut.findHighestNumber(input);
+
+        // assert
+        assertEquals(expectedResult, actualResult);
+    }
+
+    @Test
+    public void verify_empty_array_throws_exception(){
+        // arrange
+        int[] input = {};
+        HighestNumberFinder cut = new HighestNumberFinder();
+        NoSuchElementException exception = assertThrows(NoSuchElementException.class,
+                                                    () -> cut.findHighestNumber(input));
+
+        // assert
+        assertEquals("Empty array list", exception.getMessage());
+    }
+
+    @Test
+    public void verify_only_one_element_of_array_with_multiple_equal_and_highest_is_returned(){
+        // arrange
+        int[] input = {6, 6, 6, 6, 6, 6, 6};
+        HighestNumberFinder cut = new HighestNumberFinder();
+        int expectedResult = 6;
 
         // act
         int actualResult = cut.findHighestNumber(input);

@@ -2,10 +2,15 @@ package tdd;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.NoSuchElementException;
 
 public class HighestNumberFinder {
     public int findHighestNumber(int[] input) {
-        int highestSoFar = 0;
+        if(input.length == 0){
+            throw new NoSuchElementException("Empty array list");
+        }
+
+        int highestSoFar = input [0];
 
         if(input.length == 1){
             return input[0];
